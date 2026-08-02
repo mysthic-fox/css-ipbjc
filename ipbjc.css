@@ -1,44 +1,108 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Overlay Live</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-    body {
-      margin: 0;
-      padding: 40px;
-      background-color: transparent;
-      overflow: hidden;
-    }
+:root {
+  --bg-glass: rgba(12, 12, 16, 0.65);
+  --border-glass: rgba(255, 255, 255, 0.15);
+  --accent-gold: #d4af37;
+  --text-white: #ffffff;
+  --shadow-main: 0 12px 32px 0 rgba(0, 0, 0, 0.6);
+  --glow-light: 0 0 16px rgba(255, 255, 255, 0.15);
+}
 
-    .text-custom {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      line-height: 1.6;
-      color: #ffffff;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 255, 255, 0.15);
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .text-custom span {
-      display: inline;
-      background: rgba(10, 10, 12, 0.5);
-      backdrop-filter: blur(10px); 
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.2em 0.5em;
-      border-radius: 6px;
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
-    }
-  </style>
-</head>
-<body>
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-  <div class="text-custom">
-    <span>Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito. — João 3:16</span>
-  </div>
+.overlay-container {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
 
-</body>
-</html>
+.text-custom {
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-white);
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), var(--glow-light);
+  animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.text-custom span {
+  display: inline;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  padding: 0.35em 0.8em;
+  border-radius: 12px;
+  box-shadow: var(--shadow-main);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: all 0.3s ease;
+}
+
+.text-custom strong,
+.text-custom b {
+  color: var(--accent-gold);
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.text-custom em,
+.text-custom i {
+  font-style: italic;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.referencia-custom {
+  margin-top: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(10, 10, 12, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 4px solid var(--accent-gold);
+  border-top: 1px solid var(--border-glass);
+  border-right: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 6px 18px;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
