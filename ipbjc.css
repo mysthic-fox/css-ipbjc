@@ -1,58 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
-/* RESET NUCLEAR: OBLITERA QUALQUER FUNDO PRETO EXISTENTE */
-*, *::before, *::after, html, body, div, span, applet, object, iframe, h1, h2, h3, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, #app, #root, [class*="bg"], [class*="background"], [id*="bg"] {
+/* RESET DE TRANSPARÊNCIA */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  margin: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
-  background-image: none !important;
-  margin: 0 !important;
   outline: none !important;
 }
 
-/* OCULTA O (RA) E ELEMENTOS VAZIOS PARA NÃO FICAR BORDA SOBRANDO */
+html, body {
+  background: transparent !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  overflow: hidden !important;
+  font-family: 'Montserrat', sans-serif !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* OCULTA SIGLAS E ELEMENTOS VAZIOS */
 *:contains("(RA)"), span:last-child:not(:first-child), :empty {
   display: none !important;
   opacity: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
 }
 
-/* CAIXA DE TEXTO COM NEON BRANCO E FUNDO 100% TRANSPARENTE */
+/* RETÂNGULO HORIZONTAL FIXO COM BORDA NEON BRANCA */
 p, span, [class*="text"], .text-custom {
   color: #ffffff !important;
-  font-size: 24px !important;
-  font-weight: 700 !important;
-  line-height: 1.4 !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  line-height: 1.3 !important;
   text-align: center !important;
   
-  padding: 16px 24px !important;
-  border-radius: 12px !important;
+  /* DIMENSÕES DO RETÂNGULO HORIZONTAL */
+  width: 1000px !important;            /* Largura fixa ampla para criar o retângulo */
+  max-width: 85vw !important;           /* Limite para telas menores */
+  min-height: 90px !important;          /* Altura mínima de retângulo */
   
-  border: 2px solid #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  padding: 18px 36px !important;
+  border-radius: 14px !important;
+  
+  /* BORDA NEON BRANCA */
+  border: 3px solid #ffffff !important;
   box-shadow: 
-    0 0 8px #ffffff,
-    0 0 16px rgba(255, 255, 255, 0.6),
-    inset 0 0 8px rgba(255, 255, 255, 0.3) !important;
+    0 0 10px #ffffff,
+    0 0 20px rgba(255, 255, 255, 0.7),
+    inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
   
-  display: block !important;
-  width: fit-content !important;
-  max-width: 900px !important;
-  margin: 10px auto !important;
+  margin: 0 auto !important;
 }
 
-/* TÍTULO DO LIVRO COM NEON E FUNDO 100% TRANSPARENTE */
+/* TÍTULO/REFERÊNCIA CENTRALIZADO */
 h1, h2, h3, [class*="ref"], [class*="title"] {
   color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
   
-  padding: 8px 18px !important;
+  padding: 6px 20px !important;
   border-radius: 8px !important;
   
   border: 2px solid #ffffff !important;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
   
   display: table !important;
-  margin: 0 auto 8px auto !important;
+  margin: 0 auto 10px auto !important;
 }
