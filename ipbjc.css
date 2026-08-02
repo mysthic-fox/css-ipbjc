@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
-/* 1. FORÇA A TRANSPARÊNCIA TOTAL DO FUNDO DA PÁGINA E DO HOLYRICS */
-html, body, #app, #root, .main, .container, .stage, .view, iframe {
+/* 1. ZERA QUALQUER SOMBREAMENTO OU CONTORNO ESCURO GLOBAL */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  outline: none !important;
+  text-shadow: none !important;
+}
+
+html, body, #app, #root, .main, .container, .stage, .view {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
@@ -10,11 +16,7 @@ html, body, #app, #root, .main, .container, .stage, .view, iframe {
   overflow: hidden !important;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box !important;
-}
-
-/* 2. POSICIONAMENTO DA OVERLAY (900px do topo / 649px de largura) */
+/* 2. POSICIONAMENTO DA OVERLAY */
 .overlay-container, 
 div[class*="container"], 
 div[class*="wrapper"] {
@@ -29,9 +31,12 @@ div[class*="wrapper"] {
   justify-content: center !important;
   pointer-events: none !important;
   background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
-/* 3. ESTILO DO TEXTO (PRETO PURO E SEM SOMBRAS ESCURAS) */
+/* 3. ESTILO DO TEXTO (PRETO PURO) */
 .text-custom, 
 .text-custom *, 
 span, 
@@ -45,22 +50,25 @@ p {
   text-shadow: none !important;
 }
 
-/* 4. A CAIXA DE VIDRO BRANCO COM BORDA BRANCA */
+/* 4. CAIXA DE VIDRO COM BORDA 100% BRANCA (SEM SOMBRA PRETA) */
 .text-custom span,
 p span {
   display: inline-block !important;
-  background: rgba(255, 255, 255, 0.75) !important; /* Glassmorphism Branco */
+  background: rgba(255, 255, 255, 0.8) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   
-  border: 3px solid #ffffff !important; /* Borda Branca */
+  /* Borda branca sólida sem outline escuro */
+  border: 3px solid #ffffff !important;
+  outline: 1px solid #ffffff !important; /* Cobre eventuais falhas de anti-aliasing nos cantos */
   border-radius: 12px !important;
   padding: 12px 22px !important;
   
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 255, 255, 0.8) !important;
+  /* Apenas brilho/sombra clara, zero tom escuro */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9) !important;
 }
 
-/* 5. REFERÊNCIA / LIVRO (SE HOUVER) */
+/* 5. REFERÊNCIA / LIVRO */
 .referencia-custom {
   margin-top: 10px !important;
   font-size: 18px !important;
@@ -70,6 +78,8 @@ p span {
   border-top: 2px solid #ffffff !important;
   border-right: 2px solid #ffffff !important;
   border-bottom: 2px solid #ffffff !important;
+  outline: none !important;
   padding: 6px 16px !important;
   border-radius: 0 8px 8px 0 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
 }
