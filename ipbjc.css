@@ -1,22 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
-/* 1. ZERA QUALQUER FUNDO PRETO NATIVO DO HOLYRICS/NVEGADOR */
-*, *::before, *::after {
-  box-sizing: border-box !important;
+/* 1. FORÇA A TRANSPARÊNCIA TOTAL DO FUNDO DA PÁGINA E DO HOLYRICS */
+html, body, #app, #root, .main, .container, .stage, .view, iframe {
+  background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
-  text-shadow: none !important;
-}
-
-html, body {
   margin: 0 !important;
   padding: 0 !important;
-  background: transparent !important;
   overflow: hidden !important;
-  font-family: 'Montserrat', sans-serif !important;
 }
 
-/* 2. ESTRUTURA E POSICIONAMENTO DA OVERLAY */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* 2. POSICIONAMENTO DA OVERLAY (900px do topo / 649px de largura) */
 .overlay-container, 
 div[class*="container"], 
 div[class*="wrapper"] {
@@ -30,29 +28,28 @@ div[class*="wrapper"] {
   align-items: center !important;
   justify-content: center !important;
   pointer-events: none !important;
+  background: transparent !important;
 }
 
-/* 3. FORÇA O TEXTO A FICAR VISÍVEL E PRETO */
+/* 3. ESTILO DO TEXTO (PRETO PURO E SEM SOMBRAS ESCURAS) */
 .text-custom, 
 .text-custom *, 
 span, 
-p, 
-div {
+p {
   color: #000000 !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 32px !important;
   font-weight: 700 !important;
   line-height: 1.4 !important;
   text-align: center !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  text-shadow: none !important;
 }
 
-/* 4. APLICA O CAIXOTE DE VIDRO BRANCO COM BORDA BRANCA */
+/* 4. A CAIXA DE VIDRO BRANCO COM BORDA BRANCA */
 .text-custom span,
 p span {
   display: inline-block !important;
-  background: rgba(255, 255, 255, 0.75) !important; /* Vidro Branco */
+  background: rgba(255, 255, 255, 0.75) !important; /* Glassmorphism Branco */
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   
@@ -60,15 +57,15 @@ p span {
   border-radius: 12px !important;
   padding: 12px 22px !important;
   
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.8) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 255, 255, 0.8) !important;
 }
 
-/* 5. REFERÊNCIA DO VERSÍCULO/MÚSICA (SE HOUVER) */
+/* 5. REFERÊNCIA / LIVRO (SE HOUVER) */
 .referencia-custom {
   margin-top: 10px !important;
   font-size: 18px !important;
   color: #000000 !important;
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   border-left: 5px solid #d4af37 !important;
   border-top: 2px solid #ffffff !important;
   border-right: 2px solid #ffffff !important;
