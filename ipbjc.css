@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
 
-/* RESET TOTAL DE FUNDOS E BORDAS EXTERNAS */
 *, *::before, *::after {
   box-sizing: border-box !important;
   margin: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
-  border: none !important;
   outline: none !important;
-  box-shadow: none !important;
 }
 
 html, body {
@@ -18,13 +15,13 @@ html, body {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/* ESCONDE O SIGLA DA VERSÃO BÍBLICA (RA) */
+/* OCULTA O (RA) */
 *:contains("(RA)"), 
 span:last-child:not(:first-child) {
   display: none !important;
 }
 
-/* CAIXA DO TEXTO DA BÍBLIA (TEXTO BRANCO E BORDA CINZA/BRANCA) */
+/* BLOCOS DE TEXTO COM BORDA NEON 100% FECHADA E COMPLETA */
 p, span, [class*="text"], .text-custom {
   color: #ffffff !important;
   font-size: 24px !important;
@@ -32,32 +29,45 @@ p, span, [class*="text"], .text-custom {
   line-height: 1.4 !important;
   text-align: center !important;
   
-  padding: 14px 22px !important;
-  border-radius: 10px !important;
+  padding: 16px 24px !important;
+  border-radius: 12px !important;
   
-  /* BORDA E SOMBRA EM TONS DE CINZA E BRANCO */
-  border: 2px solid #e0e0e0 !important;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4) !important;
+  /* BORDA CONTINUA EM TODOS OS LADOS */
+  border-top: 2px solid #ffffff !important;
+  border-bottom: 2px solid #ffffff !important;
+  border-left: 2px solid #ffffff !important;
+  border-right: 2px solid #ffffff !important;
+  
+  /* NEON BRANCO COMPLETO */
+  box-shadow: 
+    0 0 8px #ffffff,
+    0 0 16px rgba(255, 255, 255, 0.6),
+    inset 0 0 8px rgba(255, 255, 255, 0.3) !important;
   
   display: block !important;
   width: fit-content !important;
   max-width: 900px !important;
-  margin: 8px auto !important;
+  margin: 10px auto !important;
 }
 
-/* TÍTULO DO LIVRO E VERSÍCULO (COR CINZA CLARO) */
+/* TÍTULO DO LIVRO COM BORDA NEON FECHADA */
 h1, h2, h3, [class*="ref"], [class*="title"] {
-  color: #d1d5db !important;
+  color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
   
-  padding: 6px 16px !important;
-  border-radius: 6px !important;
+  padding: 8px 18px !important;
+  border-radius: 8px !important;
   
-  border: 1.5px solid #9ca3af !important;
-  box-shadow: 0 0 8px rgba(209, 213, 219, 0.3) !important;
+  /* BORDA CONTINUA */
+  border-top: 2px solid #ffffff !important;
+  border-bottom: 2px solid #ffffff !important;
+  border-left: 2px solid #ffffff !important;
+  border-right: 2px solid #ffffff !important;
+  
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
   
   display: table !important;
-  margin: 0 auto 6px auto !important;
+  margin: 0 auto 8px auto !important;
 }
