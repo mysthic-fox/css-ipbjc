@@ -1,21 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Overlay Live</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-.text-custom {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  line-height: 1.6;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 255, 255, 0.15);
-}
+    body {
+      margin: 0;
+      padding: 40px;
+      background-color: transparent;
+      overflow: hidden;
+    }
 
-.text-custom span {
-  display: inline;
-  background: rgba(10, 10, 12, 0.35);
-  backdrop-filter: blur(10px); 
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.2em 0.5em;
-  border-radius: 6px;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-}
+    .text-custom {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.6;
+      color: #ffffff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(255, 255, 255, 0.15);
+    }
+
+    .text-custom span {
+      display: inline;
+      background: rgba(10, 10, 12, 0.5);
+      backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.2em 0.5em;
+      border-radius: 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="text-custom">
+    <span>Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito. — João 3:16</span>
+  </div>
+
+</body>
+</html>
