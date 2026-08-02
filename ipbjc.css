@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
 
+/* 1. RESET DE FUNDO ESCURO E BORDAS GLOBAIS */
 *, *::before, *::after {
   box-sizing: border-box !important;
   margin: 0 !important;
@@ -15,13 +16,27 @@ html, body {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/* OCULTA O (RA) */
+/* 2. ESCONDE QUALQUER ELEMENTO VAZIO (QUANDO O TEXTO SUMIR) */
+:empty,
+p:empty,
+span:empty,
+div:empty,
+[class*="text"]:empty,
+[class*="ref"]:empty {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. OCULTA A SIGLA DA VERSÃO (RA) */
 *:contains("(RA)"), 
 span:last-child:not(:first-child) {
   display: none !important;
 }
 
-/* BLOCOS DE TEXTO COM BORDA NEON 100% FECHADA E COMPLETA */
+/* 4. CAIXA DO TEXTO COM BORDA NEON BRANCA COMPLETA */
 p, span, [class*="text"], .text-custom {
   color: #ffffff !important;
   font-size: 24px !important;
@@ -32,13 +47,8 @@ p, span, [class*="text"], .text-custom {
   padding: 16px 24px !important;
   border-radius: 12px !important;
   
-  /* BORDA CONTINUA EM TODOS OS LADOS */
-  border-top: 2px solid #ffffff !important;
-  border-bottom: 2px solid #ffffff !important;
-  border-left: 2px solid #ffffff !important;
-  border-right: 2px solid #ffffff !important;
-  
-  /* NEON BRANCO COMPLETO */
+  /* BORDA NEON BRANCA COMPLETA */
+  border: 2px solid #ffffff !important;
   box-shadow: 
     0 0 8px #ffffff,
     0 0 16px rgba(255, 255, 255, 0.6),
@@ -48,9 +58,10 @@ p, span, [class*="text"], .text-custom {
   width: fit-content !important;
   max-width: 900px !important;
   margin: 10px auto !important;
+  transition: opacity 0.2s ease;
 }
 
-/* TÍTULO DO LIVRO COM BORDA NEON FECHADA */
+/* 5. TÍTULO DO LIVRO E VERSÍCULO */
 h1, h2, h3, [class*="ref"], [class*="title"] {
   color: #ffffff !important;
   font-size: 18px !important;
@@ -60,14 +71,10 @@ h1, h2, h3, [class*="ref"], [class*="title"] {
   padding: 8px 18px !important;
   border-radius: 8px !important;
   
-  /* BORDA CONTINUA */
-  border-top: 2px solid #ffffff !important;
-  border-bottom: 2px solid #ffffff !important;
-  border-left: 2px solid #ffffff !important;
-  border-right: 2px solid #ffffff !important;
-  
+  border: 2px solid #ffffff !important;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
   
   display: table !important;
   margin: 0 auto 8px auto !important;
+  transition: opacity 0.2s ease;
 }
