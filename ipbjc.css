@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
-/* RESET COMPLETO DE LAYOUT PARA FORÇAR A VISIBILIDADE DOS CONTAINERS */
+/* RESET APENAS DA PÁGINA */
 html, body {
   background: transparent !important;
   margin: 0 !important;
@@ -11,68 +11,66 @@ html, body {
   font-family: 'Montserrat', sans-serif !important;
 }
 
-/* Oculta sigla indesejada */
+/* Oculta sigla indesejada (RA) */
 *:contains("(RA)"), span:last-child:not(:first-child) {
   display: none !important;
 }
 
-/* CAIXA DE TEXTO / RETÂNGULO PRINCIPAL COM FUNDO CINZA ESCURO E NEON BRANCO */
+/* RETÂNGULO DO VERSÍCUlO (FUNDO CINZA + NEON BRANCO) */
 .text-custom, 
 [class*="text"], 
-p, 
-div, 
-section {
+p {
   color: #ffffff !important;
   font-size: 26px !important;
   font-weight: 800 !important;
   line-height: 1.4 !important;
   text-align: center !important;
   
-  /* FUNDO CINZA MEIO PRETO SÓLIDO (GARANTE QUE APAREÇA) */
-  background-color: #1a1a1e !important;
+  /* FUNDO CINZA ESCURO SÓLIDO */
   background: #1a1a1e !important;
+  background-color: #1a1a1e !important;
   
-  /* RETÂNGULO LARGO HORIZONTAL FIXO */
+  /* FORMATO RETANGULAR LARGO */
   width: 1200px !important;
   max-width: 90vw !important;
   min-height: 90px !important;
   
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: block !important;
+  box-sizing: border-box !important;
   
   padding: 20px 35px !important;
   border-radius: 14px !important;
   
-  /* BORDA E NEON BRANCO INTENSO */
+  /* BORDA NEON BRANCA */
   border: 3px solid #ffffff !important;
   box-shadow: 
-    0 0 10px #ffffff,
-    0 0 25px rgba(255, 255, 255, 0.8),
-    inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
+    0 0 12px #ffffff,
+    0 0 30px rgba(255, 255, 255, 0.7),
+    inset 0 0 15px rgba(255, 255, 255, 0.25) !important;
   
-  margin: 20px auto !important;
+  margin: 40px auto !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* REFERÊNCIA DO LIVRO BÍBLICO */
+/* TÍTULO / REFERÊNCIA DO LIVRO */
 h1, h2, h3, [class*="ref"], [class*="title"] {
   color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
   
-  background-color: #24242c !important;
   background: #24242c !important;
+  background-color: #24242c !important;
   
   padding: 8px 22px !important;
   border-radius: 8px !important;
   
   border: 2px solid #ffffff !important;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7) !important;
   
   display: table !important;
   margin: 0 auto 10px auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
