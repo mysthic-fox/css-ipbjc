@@ -27,12 +27,13 @@ html, body, #app, #root, div, iframe, section, main {
 [class*="wrapper"],
 [class*="content"] {
   position: absolute !important;
-  top: 780px !important;
+  top: 750px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 92% !important;
-  max-width: 1500px !important;
+  width: 95% !important;
+  max-width: 1700px !important;
   height: auto !important;
+  max-height: none !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -47,13 +48,16 @@ span,
 div {
   color: #ffffff !important;
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 38px !important;
+  font-size: 34px !important;
   font-weight: 800 !important;
   line-height: 1.4 !important;
   text-align: center !important;
   white-space: normal !important;
+  word-wrap: break-word !important;
   word-break: break-word !important;
   max-width: 100% !important;
+  max-height: none !important;
+  overflow: visible !important;
   -webkit-text-stroke: 1px #ffffff !important;
   text-shadow: 
     0 0 5px #ffffff,
