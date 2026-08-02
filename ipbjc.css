@@ -1,42 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
 
-/* 1. RESET DE FUNDO ESCURO E BORDAS GLOBAIS */
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  margin: 0 !important;
+/* RESET NUCLEAR: OBLITERA QUALQUER FUNDO PRETO EXISTENTE */
+*, *::before, *::after, html, body, div, span, applet, object, iframe, h1, h2, h3, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, #app, #root, [class*="bg"], [class*="background"], [id*="bg"] {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
+  margin: 0 !important;
   outline: none !important;
 }
 
-html, body {
-  background: transparent !important;
-  background-color: rgba(0, 0, 0, 0) !important;
-  overflow: hidden !important;
-  font-family: 'Montserrat', sans-serif !important;
-}
-
-/* 2. ESCONDE QUALQUER ELEMENTO VAZIO (QUANDO O TEXTO SUMIR) */
-:empty,
-p:empty,
-span:empty,
-div:empty,
-[class*="text"]:empty,
-[class*="ref"]:empty {
+/* OCULTA O (RA) E ELEMENTOS VAZIOS PARA NÃO FICAR BORDA SOBRANDO */
+*:contains("(RA)"), span:last-child:not(:first-child), :empty {
   display: none !important;
   opacity: 0 !important;
-  visibility: hidden !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* 3. OCULTA A SIGLA DA VERSÃO (RA) */
-*:contains("(RA)"), 
-span:last-child:not(:first-child) {
-  display: none !important;
-}
-
-/* 4. CAIXA DO TEXTO COM BORDA NEON BRANCA COMPLETA */
+/* CAIXA DE TEXTO COM NEON BRANCO E FUNDO 100% TRANSPARENTE */
 p, span, [class*="text"], .text-custom {
   color: #ffffff !important;
   font-size: 24px !important;
@@ -47,7 +28,6 @@ p, span, [class*="text"], .text-custom {
   padding: 16px 24px !important;
   border-radius: 12px !important;
   
-  /* BORDA NEON BRANCA COMPLETA */
   border: 2px solid #ffffff !important;
   box-shadow: 
     0 0 8px #ffffff,
@@ -58,10 +38,9 @@ p, span, [class*="text"], .text-custom {
   width: fit-content !important;
   max-width: 900px !important;
   margin: 10px auto !important;
-  transition: opacity 0.2s ease;
 }
 
-/* 5. TÍTULO DO LIVRO E VERSÍCULO */
+/* TÍTULO DO LIVRO COM NEON E FUNDO 100% TRANSPARENTE */
 h1, h2, h3, [class*="ref"], [class*="title"] {
   color: #ffffff !important;
   font-size: 18px !important;
@@ -76,5 +55,4 @@ h1, h2, h3, [class*="ref"], [class*="title"] {
   
   display: table !important;
   margin: 0 auto 8px auto !important;
-  transition: opacity 0.2s ease;
 }
