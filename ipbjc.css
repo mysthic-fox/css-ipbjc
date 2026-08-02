@@ -1,116 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
-:root {
-  --bg-glass-white: rgba(255, 255, 255, 0.55);
-  --border-white-solid: #ffffff;
-  --accent-gold: #d4af37;
-  --text-black: #000000;
-  --shadow-soft: 0 12px 32px 0 rgba(0, 0, 0, 0.45);
-  --glow-border: 0 0 16px rgba(255, 255, 255, 0.8);
+/* 1. ZERA QUALQUER FUNDO PRETO NATIVO DO HOLYRICS/NVEGADOR */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  text-shadow: none !important;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
   background: transparent !important;
-  font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
-  -webkit-font-smoothing: antialiased;
+  overflow: hidden !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-.overlay-container {
-  position: absolute;
-  top: 900px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 649px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
+/* 2. ESTRUTURA E POSICIONAMENTO DA OVERLAY */
+.overlay-container, 
+div[class*="container"], 
+div[class*="wrapper"] {
+  position: absolute !important;
+  top: 900px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 649px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
 }
 
-.text-custom {
-  position: relative;
+/* 3. FORÇA O TEXTO A FICAR VISÍVEL E PRETO */
+.text-custom, 
+.text-custom *, 
+span, 
+p, 
+div {
+  color: #000000 !important;
   font-family: 'Montserrat', sans-serif !important;
   font-size: 32px !important;
   font-weight: 700 !important;
-  line-height: 1.5 !important;
-  color: var(--text-black) !important;
-  text-align: center;
-  text-shadow: none !important; /* Remove sombras pretas do texto antigo */
-  animation: fadeInDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  line-height: 1.4 !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.text-custom span {
-  display: inline;
-  color: var(--text-black) !important; /* Força o texto a ser preto puro */
-  background: var(--bg-glass-white) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* 4. APLICA O CAIXOTE DE VIDRO BRANCO COM BORDA BRANCA */
+.text-custom span,
+p span {
+  display: inline-block !important;
+  background: rgba(255, 255, 255, 0.75) !important; /* Vidro Branco */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
   
-  /* Borda Branca Sólida e Destacada */
-  border: 3px solid var(--border-white-solid) !important;
+  border: 3px solid #ffffff !important; /* Borda Branca */
+  border-radius: 12px !important;
+  padding: 12px 22px !important;
   
-  padding: 12px 22px;
-  border-radius: 12px;
-  
-  /* Sombra de fundo + Brilho na Borda Branca */
-  box-shadow: var(--shadow-soft), var(--glow-border) !important;
-  
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.8) !important;
 }
 
-.text-custom strong,
-.text-custom b {
-  color: var(--text-black) !important;
-  font-weight: 800 !important;
-}
-
-.text-custom em,
-.text-custom i {
-  font-style: italic;
-  color: #222222 !important;
-  font-weight: 500;
-}
-
+/* 5. REFERÊNCIA DO VERSÍCULO/MÚSICA (SE HOUVER) */
 .referencia-custom {
-  margin-top: 12px;
-  font-family: 'Montserrat', sans-serif !important;
+  margin-top: 10px !important;
   font-size: 18px !important;
-  font-weight: 700 !important;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--text-black) !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  
-  /* Detalhe Dourado + Borda Branca */
-  border-left: 5px solid var(--accent-gold) !important;
-  border-top: 2px solid var(--border-white-solid) !important;
-  border-right: 2px solid var(--border-white-solid) !important;
-  border-bottom: 2px solid var(--border-white-solid) !important;
-  
-  padding: 6px 18px;
-  border-radius: 0 8px 8px 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), var(--glow-border) !important;
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-15px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  color: #000000 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-left: 5px solid #d4af37 !important;
+  border-top: 2px solid #ffffff !important;
+  border-right: 2px solid #ffffff !important;
+  border-bottom: 2px solid #ffffff !important;
+  padding: 6px 16px !important;
+  border-radius: 0 8px 8px 0 !important;
 }
