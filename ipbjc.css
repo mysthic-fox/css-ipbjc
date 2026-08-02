@@ -1,90 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
-/* --- 1. RESET E PURIFICAÇÃO DE CONTAINER --- */
-html, body, #app, #root, 
-.web-overlay, .lyric-container, .slide, .content, .wrapper, .container,
-div, section, main {
+/* RESET COMPLETO DE LAYOUT PARA FORÇAR A VISIBILIDADE DOS CONTAINERS */
+html, body {
   background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  font-family: 'Montserrat', sans-serif !important;
 }
 
-/* Oculta completamente quando vazio ou quando contiver a sigla indesejada */
-*:contains("(RA)"), 
-span:last-child:not(:first-child) {
+/* Oculta sigla indesejada */
+*:contains("(RA)"), span:last-child:not(:first-child) {
   display: none !important;
 }
 
-:empty,
-.overlay-container:empty,
-[class*="container"]:empty {
-  display: none !important;
-  opacity: 0 !important;
-}
-
-/* --- 2. CONTAINER GERAL DO VERSÍCULO (RETÂNGULO HORIZONTAL) --- */
+/* CAIXA DE TEXTO / RETÂNGULO PRINCIPAL COM FUNDO CINZA ESCURO E NEON BRANCO */
 .text-custom, 
 [class*="text"], 
-p {
+p, 
+div, 
+section {
   color: #ffffff !important;
-  font-family: 'Montserrat', sans-serif !important;
   font-size: 26px !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   line-height: 1.4 !important;
   text-align: center !important;
   
-  /* Fundo cinza meio-preto translúcido com desfoque de vidro */
-  background: rgba(18, 18, 22, 0.88) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
+  /* FUNDO CINZA MEIO PRETO SÓLIDO (GARANTE QUE APAREÇA) */
+  background-color: #1a1a1e !important;
+  background: #1a1a1e !important;
   
-  /* Dimensões fixas para formato sempre retangular e largo */
-  width: 1250px !important;
+  /* RETÂNGULO LARGO HORIZONTAL FIXO */
+  width: 1200px !important;
   max-width: 90vw !important;
   min-height: 90px !important;
   
   display: flex !important;
+  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
   
-  padding: 20px 40px !important;
-  border-radius: 16px !important;
+  padding: 20px 35px !important;
+  border-radius: 14px !important;
   
-  /* Dupla camada: Borda cinza externa sólida + Brilho neon suave interno */
-  border: 3px solid #4b5563 !important;
+  /* BORDA E NEON BRANCO INTENSO */
+  border: 3px solid #ffffff !important;
   box-shadow: 
-    0 0 0 4px rgba(75, 85, 99, 0.25),
-    0 0 20px rgba(255, 255, 255, 0.35),
-    inset 0 0 12px rgba(255, 255, 255, 0.15) !important;
+    0 0 10px #ffffff,
+    0 0 25px rgba(255, 255, 255, 0.8),
+    inset 0 0 15px rgba(255, 255, 255, 0.2) !important;
   
-  margin: 15px auto !important;
-  
-  /* Transição suave de Fade */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin: 20px auto !important;
   opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* --- 3. TÍTULO DO LIVRO E REFERÊNCIA --- */
+/* REFERÊNCIA DO LIVRO BÍBLICO */
 h1, h2, h3, [class*="ref"], [class*="title"] {
-  color: #f3f4f6 !important;
-  font-family: 'Montserrat', sans-serif !important;
+  color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
-  letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
   
-  background: rgba(30, 30, 36, 0.95) !important;
-  padding: 8px 24px !important;
-  border-radius: 10px !important;
+  background-color: #24242c !important;
+  background: #24242c !important;
   
-  border: 2px solid #6b7280 !important;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2) !important;
+  padding: 8px 22px !important;
+  border-radius: 8px !important;
+  
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8) !important;
   
   display: table !important;
   margin: 0 auto 10px auto !important;
-  
-  transition: opacity 0.4s ease-in-out !important;
 }
