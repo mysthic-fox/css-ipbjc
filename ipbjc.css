@@ -1,75 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap');
 
-/* RESET FORÇADO DE CONTAINERS E ESTRUTURA */
-html, body, #app, #root, div, section, main, iframe {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  overflow: visible !important;
-}
-
-/* O QUADRADO MENOR E AJUSTADO */
-.overlay-container, 
-[class*="container"], 
-[class*="wrapper"],
-[class*="box"],
-[class*="content"] {
-  position: absolute !important;
-  top: 80% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  
-  /* DIMENSÕES REDUZIDAS DO QUADRADO */
-  width: 700px !important;
-  max-width: 85vw !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
+*, *::before, *::after {
   box-sizing: border-box !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
 }
 
-/* TEXTO DA BÍBLIA COMPLETO SEM CORTAR */
-.text-custom, 
-[class*="text"], 
-p, 
-span {
-  color: #ffffff !important;
+html, body {
+  background: transparent !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  overflow: hidden !important;
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 26px !important; /* Tamanho reduzido para caber no quadrado menor */
-  font-weight: 800 !important;
+}
+
+/* CONTAINER PRINCIPAL REDIMENSIONADO */
+div, section, main, [class*="container"], [class*="wrapper"] {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* CAIXA DO TEXTO COM BORDA NEON BRANCA */
+p, span, [class*="text"], .text-custom {
+  background: rgba(20, 20, 25, 0.75) !important; /* Fundo escuro sutil para leitura */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  
+  color: #ffffff !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
   line-height: 1.4 !important;
   text-align: center !important;
   
-  /* QUEBRA DE LINHA OBRIGATÓRIA */
-  white-space: normal !important;
-  word-wrap: break-word !important;
-  word-break: normal !important;
-  overflow: visible !important;
+  padding: 16px 24px !important;
+  border-radius: 12px !important;
   
-  /* EFEITO NEON BRANCO */
-  -webkit-text-stroke: 0.5px #ffffff !important;
-  text-shadow: 
-    0 0 5px #ffffff,
-    0 0 12px rgba(255, 255, 255, 0.8),
-    0 0 25px rgba(255, 255, 255, 0.5) !important;
+  /* BORDA E NEON BRANCO */
+  border: 2px solid #ffffff !important;
+  box-shadow: 
+    0 0 10px #ffffff,
+    0 0 20px rgba(255, 255, 255, 0.6) !important;
+    
+  display: block !important;
+  width: fit-content !important;
+  max-width: 850px !important;
+  margin: 10px auto !important;
 }
 
-/* REFERÊNCIA BÍBLICA */
-.referencia-custom,
-[class*="ref"] {
-  margin-top: 10px !important;
+/* TÍTULO DO LIVRO E VERSÍCULO COM NEON */
+h1, h2, h3, [class*="ref"], [class*="title"] {
+  background: rgba(20, 20, 25, 0.85) !important;
+  color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
-  color: #d4af37 !important;
   text-transform: uppercase !important;
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.8) !important;
+  
+  padding: 8px 18px !important;
+  border-radius: 8px !important;
+  
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8) !important;
+  
+  display: table !important;
+  margin: 0 auto 8px auto !important;
+}
+
+/* ESCONDE O (RA) E QUALQUER SIGLA DE VERSÃO BÍBLICA */
+*:contains("(RA)"), 
+span:last-child:not(:first-child) {
+  font-size: 0 !important;
+  visibility: hidden !important;
 }
