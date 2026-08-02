@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap');
 
-/* 1. RESET DE FUNDOS E BORDAS DOS CONTAINERS DO HOLYRICS */
+/* --- 1. RESET E PURIFICAÇÃO DE CONTAINER --- */
 html, body, #app, #root, 
 .web-overlay, .lyric-container, .slide, .content, .wrapper, .container,
 div, section, main {
@@ -12,65 +12,79 @@ div, section, main {
   box-shadow: none !important;
 }
 
-/* OCULTA SIGLAS (RA) E ELEMENTOS VAZIOS */
-*:contains("(RA)"), span:last-child:not(:first-child), :empty {
+/* Oculta completamente quando vazio ou quando contiver a sigla indesejada */
+*:contains("(RA)"), 
+span:last-child:not(:first-child) {
+  display: none !important;
+}
+
+:empty,
+.overlay-container:empty,
+[class*="container"]:empty {
   display: none !important;
   opacity: 0 !important;
 }
 
-/* 2. RETÂNGULO LARGO: FUNDO CINZA MEIO PRETO + DUPLA BORDA (NEON POR DENTRO, CINZA POR FORA) */
+/* --- 2. CONTAINER GERAL DO VERSÍCULO (RETÂNGULO HORIZONTAL) --- */
 .text-custom, 
 [class*="text"], 
 p {
   color: #ffffff !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 26px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   line-height: 1.4 !important;
   text-align: center !important;
   
-  /* FUNDO CINZA MEIO PRETO */
-  background: rgba(22, 22, 26, 0.9) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
+  /* Fundo cinza meio-preto translúcido com desfoque de vidro */
+  background: rgba(18, 18, 22, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
   
-  /* RETÂNGULO HORIZONTAL LARGO FIXO */
-  width: 1200px !important;
+  /* Dimensões fixas para formato sempre retangular e largo */
+  width: 1250px !important;
   max-width: 90vw !important;
-  min-height: 85px !important;
+  min-height: 90px !important;
   
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   
-  padding: 18px 36px !important;
-  border-radius: 14px !important;
+  padding: 20px 40px !important;
+  border-radius: 16px !important;
   
-  /* BORDA DUPLA: BORDA CINZA EXTERNA + NEON BRANCO INTERNO */
-  border: 3px solid #6b7280 !important;
+  /* Dupla camada: Borda cinza externa sólida + Brilho neon suave interno */
+  border: 3px solid #4b5563 !important;
   box-shadow: 
-    0 0 0 5px rgba(107, 114, 128, 0.3),
-    0 0 12px #ffffff,
-    0 0 25px rgba(255, 255, 255, 0.6),
-    inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
+    0 0 0 4px rgba(75, 85, 99, 0.25),
+    0 0 20px rgba(255, 255, 255, 0.35),
+    inset 0 0 12px rgba(255, 255, 255, 0.15) !important;
   
-  margin: 10px auto !important;
-  transition: opacity 0.3s ease-in-out !important;
+  margin: 15px auto !important;
+  
+  /* Transição suave de Fade */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 1 !important;
 }
 
-/* 3. TÍTULO / REFERÊNCIA BÍBLICA */
+/* --- 3. TÍTULO DO LIVRO E REFERÊNCIA --- */
 h1, h2, h3, [class*="ref"], [class*="title"] {
-  color: #ffffff !important;
+  color: #f3f4f6 !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-size: 18px !important;
   font-weight: 800 !important;
+  letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
   
-  background: rgba(22, 22, 26, 0.95) !important;
-  padding: 6px 20px !important;
-  border-radius: 8px !important;
+  background: rgba(30, 30, 36, 0.95) !important;
+  padding: 8px 24px !important;
+  border-radius: 10px !important;
   
   border: 2px solid #6b7280 !important;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2) !important;
   
   display: table !important;
-  margin: 0 auto 8px auto !important;
+  margin: 0 auto 10px auto !important;
+  
+  transition: opacity 0.4s ease-in-out !important;
 }
