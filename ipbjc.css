@@ -1,109 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
-/* 1. RESET GLOBAL DE BORDAS E FUNDOS INTERNOS (ELIMINA BORDA DUPLICADA) */
-*, *::before, *::after {
-  box-sizing: border-box !important;
-  margin: 0 !important;
-  padding: 0 !important;
+/* 1. RESET DE FUNDOS E BORDAS DOS CONTAINERS DO HOLYRICS */
+html, body, #app, #root, 
+.web-overlay, .lyric-container, .slide, .content, .wrapper, .container,
+div, section, main {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
 }
 
-html, body {
-  background: transparent !important;
-  background-color: rgba(0, 0, 0, 0) !important;
-  overflow: hidden !important;
-  font-family: 'Montserrat', sans-serif !important;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-
-/* OCULTA SIGLA (RA) E ELEMENTOS VAZIOS */
-*:contains("(RA)"), span:last-child:not(:first-child) {
+/* OCULTA SIGLAS (RA) E ELEMENTOS VAZIOS */
+*:contains("(RA)"), span:last-child:not(:first-child), :empty {
   display: none !important;
+  opacity: 0 !important;
 }
 
-/* 2. ESTRUTURA PRINCIPAL (O ÚNICO RETÂNGULO COM BORDA E FUNDO CINZA ESCURO) */
-.overlay-container, 
-[class*="container"], 
-[class*="wrapper"],
-main, section {
-  /* POSICIONAMENTO CENTRALIZADO NA PARTE INFERIOR */
-  position: absolute !important;
-  bottom: 60px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  
-  /* RETÂNGULO LARGO HORIZONTAL */
-  width: 1200px !important;
-  max-width: 90vw !important;
-  height: auto !important;
-  min-height: 90px !important;
-  
-  /* FUNDO CINZA MEIO PRETO */
-  background: rgba(20, 20, 25, 0.88) !important;
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  
-  /* BORDA NEON BRANCA ÚNICA */
-  border: 2.5px solid #ffffff !important;
-  border-radius: 14px !important;
-  box-shadow: 
-    0 0 12px #ffffff,
-    0 0 24px rgba(255, 255, 255, 0.5) !important;
-    
-  padding: 18px 36px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  
-  /* FADE SUAVE NA TRANSIÇÃO */
-  transition: opacity 0.3s ease-in-out !important;
-}
-
-/* 3. FORMATAÇÃO DO TEXTO DA BÍBLIA/LOUVOR (SEM BORDAS PRÓPRIAS) */
-p, span, [class*="text"], .text-custom {
+/* 2. RETÂNGULO LARGO: FUNDO CINZA MEIO PRETO + DUPLA BORDA (NEON POR DENTRO, CINZA POR FORA) */
+.text-custom, 
+[class*="text"], 
+p {
   color: #ffffff !important;
   font-size: 26px !important;
   font-weight: 800 !important;
-  line-height: 1.3 !important;
+  line-height: 1.4 !important;
   text-align: center !important;
   
-  /* LIMPA QUALQUER BORDA OU SOMBRA INDIVIDUAL DO TEXTO */
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
+  /* FUNDO CINZA MEIO PRETO */
+  background: rgba(22, 22, 26, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   
-  width: 100% !important;
-  display: block !important;
+  /* RETÂNGULO HORIZONTAL LARGO FIXO */
+  width: 1200px !important;
+  max-width: 90vw !important;
+  min-height: 85px !important;
+  
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  padding: 18px 36px !important;
+  border-radius: 14px !important;
+  
+  /* BORDA DUPLA: BORDA CINZA EXTERNA + NEON BRANCO INTERNO */
+  border: 3px solid #6b7280 !important;
+  box-shadow: 
+    0 0 0 5px rgba(107, 114, 128, 0.3),
+    0 0 12px #ffffff,
+    0 0 25px rgba(255, 255, 255, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3) !important;
+  
+  margin: 10px auto !important;
+  transition: opacity 0.3s ease-in-out !important;
 }
 
-/* 4. TÍTULO / REFERÊNCIA (TEXTO DESTACADO DENTRO DO MESMO RETÂNGULO) */
+/* 3. TÍTULO / REFERÊNCIA BÍBLICA */
 h1, h2, h3, [class*="ref"], [class*="title"] {
   color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
-  letter-spacing: 1px !important;
   
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
+  background: rgba(22, 22, 26, 0.95) !important;
+  padding: 6px 20px !important;
+  border-radius: 8px !important;
   
-  margin-bottom: 8px !important;
-  display: block !important;
-}
-
-/* 5. QUANDO O TEXTO FOR REMOVIDO, SUMIR O RETÂNGULO INTEIRO */
-:empty,
-.overlay-container:empty,
-[class*="container"]:empty {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  border: none !important;
-  box-shadow: none !important;
+  border: 2px solid #6b7280 !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+  
+  display: table !important;
+  margin: 0 auto 8px auto !important;
 }
