@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap');
 
-/* 1. RESET COMPLETO DE TRANSPARÊNCIA (ELIMINA O QUADRADO PRETO EXTERNO) */
+/* 1. RESET GLOBAL DE BORDAS E FUNDOS INTERNOS (ELIMINA BORDA DUPLICADA) */
 *, *::before, *::after {
   box-sizing: border-box !important;
   margin: 0 !important;
+  padding: 0 !important;
   background: transparent !important;
   background-color: transparent !important;
+  border: none !important;
   outline: none !important;
+  box-shadow: none !important;
 }
 
 html, body {
@@ -19,65 +22,88 @@ html, body {
 }
 
 /* OCULTA SIGLA (RA) E ELEMENTOS VAZIOS */
-*:contains("(RA)"), span:last-child:not(:first-child), :empty {
+*:contains("(RA)"), span:last-child:not(:first-child) {
   display: none !important;
-  opacity: 0 !important;
 }
 
-/* 2. RETÂNGULO HORIZONTAL FIXO COM FUNDO CINZA ESCURO E FADE */
+/* 2. ESTRUTURA PRINCIPAL (O ÚNICO RETÂNGULO COM BORDA E FUNDO CINZA ESCURO) */
+.overlay-container, 
+[class*="container"], 
+[class*="wrapper"],
+main, section {
+  /* POSICIONAMENTO CENTRALIZADO NA PARTE INFERIOR */
+  position: absolute !important;
+  bottom: 60px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  
+  /* RETÂNGULO LARGO HORIZONTAL */
+  width: 1200px !important;
+  max-width: 90vw !important;
+  height: auto !important;
+  min-height: 90px !important;
+  
+  /* FUNDO CINZA MEIO PRETO */
+  background: rgba(20, 20, 25, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  
+  /* BORDA NEON BRANCA ÚNICA */
+  border: 2.5px solid #ffffff !important;
+  border-radius: 14px !important;
+  box-shadow: 
+    0 0 12px #ffffff,
+    0 0 24px rgba(255, 255, 255, 0.5) !important;
+    
+  padding: 18px 36px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  
+  /* FADE SUAVE NA TRANSIÇÃO */
+  transition: opacity 0.3s ease-in-out !important;
+}
+
+/* 3. FORMATAÇÃO DO TEXTO DA BÍBLIA/LOUVOR (SEM BORDAS PRÓPRIAS) */
 p, span, [class*="text"], .text-custom {
   color: #ffffff !important;
   font-size: 26px !important;
   font-weight: 800 !important;
-  line-height: 1.4 !important;
+  line-height: 1.3 !important;
   text-align: center !important;
   
-  /* FUNDO CINZA MEIO PRETO */
-  background: rgba(25, 25, 30, 0.85) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  /* LIMPA QUALQUER BORDA OU SOMBRA INDIVIDUAL DO TEXTO */
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
   
-  /* FORMATO RETANGULAR OBRIGATÓRIO (NÃO VIRA QUADRADO) */
-  width: 1100px !important;
-  max-width: 88vw !important;
-  min-height: 85px !important;
-  
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  
-  padding: 16px 32px !important;
-  border-radius: 12px !important;
-  
-  /* BORDA NEON BRANCA COMPLETA */
-  border: 2.5px solid #ffffff !important;
-  box-shadow: 
-    0 0 12px #ffffff,
-    0 0 24px rgba(255, 255, 255, 0.5) !important;
-  
-  margin: 0 auto !important;
-  
-  /* SUAVIZAÇÃO DE TRANSIÇÃO / FADE */
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out !important;
-  opacity: 1 !important;
+  width: 100% !important;
+  display: block !important;
 }
 
-/* 3. TÍTULO / REFERÊNCIA COM FUNDO CINZA ESCURO E FADE */
+/* 4. TÍTULO / REFERÊNCIA (TEXTO DESTACADO DENTRO DO MESMO RETÂNGULO) */
 h1, h2, h3, [class*="ref"], [class*="title"] {
   color: #ffffff !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   text-transform: uppercase !important;
+  letter-spacing: 1px !important;
   
-  background: rgba(25, 25, 30, 0.9) !important;
-  padding: 8px 22px !important;
-  border-radius: 8px !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
   
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
-  
-  display: table !important;
-  margin: 0 auto 10px auto !important;
-  
-  transition: opacity 0.4s ease-in-out !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+/* 5. QUANDO O TEXTO FOR REMOVIDO, SUMIR O RETÂNGULO INTEIRO */
+:empty,
+.overlay-container:empty,
+[class*="container"]:empty {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
 }
