@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap');
 
-/* 1. ZERA QUALQUER SOMBREAMENTO OU CONTORNO ESCURO GLOBAL */
+/* 1. ANULA TODOS OS CONTORNOS E SOMBRAS ESCURAS DO HOLYRICS */
 *, *::before, *::after {
   box-sizing: border-box !important;
   outline: none !important;
@@ -13,18 +13,19 @@ html, body, #app, #root, .main, .container, .stage, .view {
   background-image: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  overflow: hidden !important;
+  overflow: visible !important; /* Permite o texto expandir sem cortar */
 }
 
-/* 2. POSICIONAMENTO DA OVERLAY */
+/* 2. ESTRUTURA FLEXÍVEL (NÃO CORTA O TEXTO) */
 .overlay-container, 
 div[class*="container"], 
 div[class*="wrapper"] {
   position: absolute !important;
-  top: 900px !important;
+  top: 850px !important; /* Subimos um pouco para dar mais espaço vertical */
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 649px !important;
+  width: max-content !important; /* Ajusta ao tamanho do texto */
+  max-width: 1400px !important; /* Limite seguro para não estourar a tela de 1920px */
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -32,54 +33,52 @@ div[class*="wrapper"] {
   pointer-events: none !important;
   background: transparent !important;
   border: none !important;
-  outline: none !important;
   box-shadow: none !important;
 }
 
-/* 3. ESTILO DO TEXTO (PRETO PURO) */
+/* 3. TIPOGRAFIA AJUSTADA (PRETO PURO E VISÍVEL) */
 .text-custom, 
 .text-custom *, 
 span, 
 p {
   color: #000000 !important;
   font-family: 'Montserrat', sans-serif !important;
-  font-size: 32px !important;
+  font-size: 28px !important; /* Reduzido levemente para caber versículos longos */
   font-weight: 700 !important;
   line-height: 1.4 !important;
   text-align: center !important;
   text-shadow: none !important;
+  word-wrap: break-word !important;
 }
 
-/* 4. CAIXA DE VIDRO COM BORDA 100% BRANCA (SEM SOMBRA PRETA) */
+/* 4. CAIXA DE VIDRO BRANCO DINÂMICA SEM BORDA PRETA */
 .text-custom span,
 p span {
   display: inline-block !important;
-  background: rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   
-  /* Borda branca sólida sem outline escuro */
+  /* Borda branca pura e brilhante */
   border: 3px solid #ffffff !important;
-  outline: 1px solid #ffffff !important; /* Cobre eventuais falhas de anti-aliasing nos cantos */
   border-radius: 12px !important;
-  padding: 12px 22px !important;
+  padding: 14px 28px !important;
   
-  /* Apenas brilho/sombra clara, zero tom escuro */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.9) !important;
+  /* Apenas brilho branco ao redor, zero sombra escura */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.9) !important;
 }
 
 /* 5. REFERÊNCIA / LIVRO */
 .referencia-custom {
   margin-top: 10px !important;
-  font-size: 18px !important;
+  font-size: 16px !important;
   color: #000000 !important;
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: #ffffff !important;
   border-left: 5px solid #d4af37 !important;
   border-top: 2px solid #ffffff !important;
   border-right: 2px solid #ffffff !important;
   border-bottom: 2px solid #ffffff !important;
-  outline: none !important;
   padding: 6px 16px !important;
   border-radius: 0 8px 8px 0 !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7) !important;
 }
